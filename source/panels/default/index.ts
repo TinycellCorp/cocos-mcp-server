@@ -58,7 +58,7 @@ module.exports = Editor.Panel.define({
                     // 响应式数据
                     const activeTab = ref('server');
                     const serverRunning = ref(false);
-                    const serverStatus = ref('已停止');
+                    const serverStatus = ref('중지됨');
                     const connectedClients = ref(0);
                     const httpUrl = ref('');
                     const isProcessing = ref(false);
@@ -261,20 +261,20 @@ module.exports = Editor.Panel.define({
                     
                     const getCategoryDisplayName = (category: string): string => {
                         const categoryNames: { [key: string]: string } = {
-                            'scene': '场景工具',
-                            'node': '节点工具',
-                            'component': '组件工具',
-                            'prefab': '预制体工具',
-                            'project': '项目工具',
-                            'debug': '调试工具',
-                            'preferences': '偏好设置工具',
-                            'server': '服务器工具',
-                            'broadcast': '广播工具',
-                            'sceneAdvanced': '高级场景工具',
-                            'sceneView': '场景视图工具',
-                            'referenceImage': '参考图片工具',
-                            'assetAdvanced': '高级资源工具',
-                            'validation': '验证工具'
+                            'scene': '씬 도구',
+                            'node': '노드 도구',
+                            'component': '컴포넌트 도구',
+                            'prefab': '프리팹 도구',
+                            'project': '프로젝트 도구',
+                            'debug': '디버그 도구',
+                            'preferences': '환경설정 도구',
+                            'server': '서버 도구',
+                            'broadcast': '브로드캐스트 도구',
+                            'sceneAdvanced': '고급 씬 도구',
+                            'sceneView': '씬 뷰 도구',
+                            'referenceImage': '참조 이미지 도구',
+                            'assetAdvanced': '고급 에셋 도구',
+                            'validation': '유효성 검사 도구'
                         };
                         return categoryNames[category] || category;
                     };
@@ -322,7 +322,7 @@ module.exports = Editor.Panel.define({
                                 const result = await Editor.Message.request('cocos-mcp-server', 'get-server-status');
                                 if (result) {
                                     serverRunning.value = result.running;
-                                    serverStatus.value = result.running ? '运行中' : '已停止';
+                                    serverStatus.value = result.running ? '실행 중' : '중지됨';
                                     connectedClients.value = result.clients || 0;
                                     httpUrl.value = result.running ? `http://localhost:${result.port}` : '';
                                     isProcessing.value = false;

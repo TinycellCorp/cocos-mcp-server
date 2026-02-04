@@ -140,83 +140,83 @@ export class ToolManager {
     private initializeDefaultTools(): void {
         // 默认工具列表作为后备方案
         const toolCategories = [
-            { category: 'scene', name: '场景工具', tools: [
-                { name: 'getCurrentSceneInfo', description: '获取当前场景信息' },
-                { name: 'getSceneHierarchy', description: '获取场景层级结构' },
-                { name: 'createNewScene', description: '创建新场景' },
-                { name: 'saveScene', description: '保存场景' },
-                { name: 'loadScene', description: '加载场景' }
+            { category: 'scene', name: '씬 도구', tools: [
+                { name: 'getCurrentSceneInfo', description: '현재 씬 정보 조회' },
+                { name: 'getSceneHierarchy', description: '씬 계층구조 조회' },
+                { name: 'createNewScene', description: '새 씬 생성' },
+                { name: 'saveScene', description: '씬 저장' },
+                { name: 'loadScene', description: '씬 불러오기' }
             ]},
-            { category: 'node', name: '节点工具', tools: [
-                { name: 'getAllNodes', description: '获取所有节点' },
-                { name: 'findNodeByName', description: '根据名称查找节点' },
-                { name: 'createNode', description: '创建节点' },
-                { name: 'deleteNode', description: '删除节点' },
-                { name: 'setNodeProperty', description: '设置节点属性' },
-                { name: 'getNodeInfo', description: '获取节点信息' }
+            { category: 'node', name: '노드 도구', tools: [
+                { name: 'getAllNodes', description: '모든 노드 조회' },
+                { name: 'findNodeByName', description: '이름으로 노드 검색' },
+                { name: 'createNode', description: '노드 생성' },
+                { name: 'deleteNode', description: '노드 삭제' },
+                { name: 'setNodeProperty', description: '노드 속성 설정' },
+                { name: 'getNodeInfo', description: '노드 정보 조회' }
             ]},
-            { category: 'component', name: '组件工具', tools: [
-                { name: 'addComponentToNode', description: '添加组件到节点' },
-                { name: 'removeComponentFromNode', description: '从节点移除组件' },
-                { name: 'setComponentProperty', description: '设置组件属性' },
-                { name: 'getComponentInfo', description: '获取组件信息' }
+            { category: 'component', name: '컴포넌트 도구', tools: [
+                { name: 'addComponentToNode', description: '노드에 컴포넌트 추가' },
+                { name: 'removeComponentFromNode', description: '노드에서 컴포넌트 제거' },
+                { name: 'setComponentProperty', description: '컴포넌트 속성 설정' },
+                { name: 'getComponentInfo', description: '컴포넌트 정보 조회' }
             ]},
-            { category: 'prefab', name: '预制体工具', tools: [
-                { name: 'createPrefabFromNode', description: '从节点创建预制体' },
-                { name: 'instantiatePrefab', description: '实例化预制体' },
-                { name: 'getPrefabInfo', description: '获取预制体信息' },
-                { name: 'savePrefab', description: '保存预制体' }
+            { category: 'prefab', name: '프리팹 도구', tools: [
+                { name: 'createPrefabFromNode', description: '노드에서 프리팹 생성' },
+                { name: 'instantiatePrefab', description: '프리팹 인스턴스화' },
+                { name: 'getPrefabInfo', description: '프리팹 정보 조회' },
+                { name: 'savePrefab', description: '프리팹 저장' }
             ]},
-            { category: 'project', name: '项目工具', tools: [
-                { name: 'getProjectInfo', description: '获取项目信息' },
-                { name: 'getAssetList', description: '获取资源列表' },
-                { name: 'createAsset', description: '创建资源' },
-                { name: 'deleteAsset', description: '删除资源' }
+            { category: 'project', name: '프로젝트 도구', tools: [
+                { name: 'getProjectInfo', description: '프로젝트 정보 조회' },
+                { name: 'getAssetList', description: '에셋 목록 조회' },
+                { name: 'createAsset', description: '에셋 생성' },
+                { name: 'deleteAsset', description: '에셋 삭제' }
             ]},
-            { category: 'debug', name: '调试工具', tools: [
-                { name: 'getConsoleLogs', description: '获取控制台日志' },
-                { name: 'getPerformanceStats', description: '获取性能统计' },
-                { name: 'validateScene', description: '验证场景' },
-                { name: 'getErrorLogs', description: '获取错误日志' }
+            { category: 'debug', name: '디버그 도구', tools: [
+                { name: 'getConsoleLogs', description: '콘솔 로그 조회' },
+                { name: 'getPerformanceStats', description: '성능 통계 조회' },
+                { name: 'validateScene', description: '씬 검증' },
+                { name: 'getErrorLogs', description: '에러 로그 조회' }
             ]},
-            { category: 'preferences', name: '偏好设置工具', tools: [
-                { name: 'getPreferences', description: '获取偏好设置' },
-                { name: 'setPreferences', description: '设置偏好设置' },
-                { name: 'resetPreferences', description: '重置偏好设置' }
+            { category: 'preferences', name: '환경설정 도구', tools: [
+                { name: 'getPreferences', description: '환경설정 조회' },
+                { name: 'setPreferences', description: '환경설정 설정' },
+                { name: 'resetPreferences', description: '환경설정 초기화' }
             ]},
-            { category: 'server', name: '服务器工具', tools: [
-                { name: 'getServerStatus', description: '获取服务器状态' },
-                { name: 'getConnectedClients', description: '获取连接的客户端' },
-                { name: 'getServerLogs', description: '获取服务器日志' }
+            { category: 'server', name: '서버 도구', tools: [
+                { name: 'getServerStatus', description: '서버 상태 조회' },
+                { name: 'getConnectedClients', description: '연결된 클라이언트 조회' },
+                { name: 'getServerLogs', description: '서버 로그 조회' }
             ]},
-            { category: 'broadcast', name: '广播工具', tools: [
-                { name: 'broadcastMessage', description: '广播消息' },
-                { name: 'getBroadcastHistory', description: '获取广播历史' }
+            { category: 'broadcast', name: '브로드캐스트 도구', tools: [
+                { name: 'broadcastMessage', description: '메시지 브로드캐스트' },
+                { name: 'getBroadcastHistory', description: '브로드캐스트 이력 조회' }
             ]},
-            { category: 'sceneAdvanced', name: '高级场景工具', tools: [
-                { name: 'optimizeScene', description: '优化场景' },
-                { name: 'analyzeScene', description: '分析场景' },
-                { name: 'batchOperation', description: '批量操作' }
+            { category: 'sceneAdvanced', name: '고급 씬 도구', tools: [
+                { name: 'optimizeScene', description: '씬 최적화' },
+                { name: 'analyzeScene', description: '씬 분석' },
+                { name: 'batchOperation', description: '일괄 작업' }
             ]},
-            { category: 'sceneView', name: '场景视图工具', tools: [
-                { name: 'getViewportInfo', description: '获取视口信息' },
-                { name: 'setViewportCamera', description: '设置视口相机' },
-                { name: 'focusOnNode', description: '聚焦到节点' }
+            { category: 'sceneView', name: '씬 뷰 도구', tools: [
+                { name: 'getViewportInfo', description: '뷰포트 정보 조회' },
+                { name: 'setViewportCamera', description: '뷰포트 카메라 설정' },
+                { name: 'focusOnNode', description: '노드에 포커스' }
             ]},
-            { category: 'referenceImage', name: '参考图片工具', tools: [
-                { name: 'addReferenceImage', description: '添加参考图片' },
-                { name: 'removeReferenceImage', description: '移除参考图片' },
-                { name: 'getReferenceImages', description: '获取参考图片列表' }
+            { category: 'referenceImage', name: '참조 이미지 도구', tools: [
+                { name: 'addReferenceImage', description: '참조 이미지 추가' },
+                { name: 'removeReferenceImage', description: '참조 이미지 제거' },
+                { name: 'getReferenceImages', description: '참조 이미지 목록 조회' }
             ]},
-            { category: 'assetAdvanced', name: '高级资源工具', tools: [
-                { name: 'importAsset', description: '导入资源' },
-                { name: 'exportAsset', description: '导出资源' },
-                { name: 'processAsset', description: '处理资源' }
+            { category: 'assetAdvanced', name: '고급 에셋 도구', tools: [
+                { name: 'importAsset', description: '에셋 가져오기' },
+                { name: 'exportAsset', description: '에셋 내보내기' },
+                { name: 'processAsset', description: '에셋 처리' }
             ]},
-            { category: 'validation', name: '验证工具', tools: [
-                { name: 'validateProject', description: '验证项目' },
-                { name: 'validateAssets', description: '验证资源' },
-                { name: 'generateReport', description: '生成报告' }
+            { category: 'validation', name: '유효성 검사 도구', tools: [
+                { name: 'validateProject', description: '프로젝트 검증' },
+                { name: 'validateAssets', description: '에셋 검증' },
+                { name: 'generateReport', description: '리포트 생성' }
             ]}
         ];
 
