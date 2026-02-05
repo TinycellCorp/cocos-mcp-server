@@ -13,6 +13,7 @@ export class BroadcastTools implements ToolExecutor {
             {
                 name: 'get_broadcast_log',
                 description: 'Get recent broadcast messages log',
+                displayDescription: '최근 브로드캐스트 메시지 로그 조회',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -31,6 +32,7 @@ export class BroadcastTools implements ToolExecutor {
             {
                 name: 'listen_broadcast',
                 description: 'Start listening for specific broadcast messages',
+                displayDescription: '특정 브로드캐스트 메시지 수신 시작',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -45,6 +47,7 @@ export class BroadcastTools implements ToolExecutor {
             {
                 name: 'stop_listening',
                 description: 'Stop listening for specific broadcast messages',
+                displayDescription: '특정 브로드캐스트 메시지 수신 중지',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -59,6 +62,7 @@ export class BroadcastTools implements ToolExecutor {
             {
                 name: 'clear_broadcast_log',
                 description: 'Clear the broadcast messages log',
+                displayDescription: '브로드캐스트 메시지 로그 초기화',
                 inputSchema: {
                     type: 'object',
                     properties: {}
@@ -67,6 +71,7 @@ export class BroadcastTools implements ToolExecutor {
             {
                 name: 'get_active_listeners',
                 description: 'Get list of active broadcast listeners',
+                displayDescription: '활성 브로드캐스트 수신기 목록 조회',
                 inputSchema: {
                     type: 'object',
                     properties: {}

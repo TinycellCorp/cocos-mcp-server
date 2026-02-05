@@ -6,6 +6,7 @@ export class SceneTools implements ToolExecutor {
             {
                 name: 'get_current_scene',
                 description: 'Get current scene information',
+                displayDescription: '현재 씬 정보 조회',
                 inputSchema: {
                     type: 'object',
                     properties: {}
@@ -14,6 +15,7 @@ export class SceneTools implements ToolExecutor {
             {
                 name: 'get_scene_list',
                 description: 'Get all scenes in the project',
+                displayDescription: '프로젝트의 모든 씬 조회',
                 inputSchema: {
                     type: 'object',
                     properties: {}
@@ -22,6 +24,7 @@ export class SceneTools implements ToolExecutor {
             {
                 name: 'open_scene',
                 description: 'Open a scene by path',
+                displayDescription: '경로로 씬 열기',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -36,6 +39,7 @@ export class SceneTools implements ToolExecutor {
             {
                 name: 'save_scene',
                 description: 'Save current scene',
+                displayDescription: '현재 씬 저장',
                 inputSchema: {
                     type: 'object',
                     properties: {}
@@ -44,6 +48,7 @@ export class SceneTools implements ToolExecutor {
             {
                 name: 'create_scene',
                 description: 'Create a new scene asset',
+                displayDescription: '새 씬 에셋 생성',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -62,6 +67,7 @@ export class SceneTools implements ToolExecutor {
             {
                 name: 'save_scene_as',
                 description: 'Save scene as new file',
+                displayDescription: '씬을 새 파일로 저장',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -76,6 +82,7 @@ export class SceneTools implements ToolExecutor {
             {
                 name: 'close_scene',
                 description: 'Close current scene',
+                displayDescription: '현재 씬 닫기',
                 inputSchema: {
                     type: 'object',
                     properties: {}
@@ -84,6 +91,7 @@ export class SceneTools implements ToolExecutor {
             {
                 name: 'get_scene_hierarchy',
                 description: 'Get the complete hierarchy of current scene',
+                displayDescription: '현재 씬의 전체 계층구조 조회',
                 inputSchema: {
                     type: 'object',
                     properties: {

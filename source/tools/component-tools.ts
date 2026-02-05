@@ -6,6 +6,7 @@ export class ComponentTools implements ToolExecutor {
             {
                 name: 'add_component',
                 description: 'Add a component to a specific node. IMPORTANT: You must provide the nodeUuid parameter to specify which node to add the component to.',
+                displayDescription: '특정 노드에 컴포넌트 추가',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -24,6 +25,7 @@ export class ComponentTools implements ToolExecutor {
             {
                 name: 'remove_component',
                 description: 'Remove a component from a node. componentType must be the component\'s classId (cid, i.e. the type field from getComponents), not the script name or class name. Use getComponents to get the correct cid.',
+                displayDescription: '노드에서 컴포넌트 제거',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -42,6 +44,7 @@ export class ComponentTools implements ToolExecutor {
             {
                 name: 'get_components',
                 description: 'Get all components of a node',
+                displayDescription: '노드의 모든 컴포넌트 조회',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -56,6 +59,7 @@ export class ComponentTools implements ToolExecutor {
             {
                 name: 'get_component_info',
                 description: 'Get specific component information',
+                displayDescription: '특정 컴포넌트 정보 조회',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -74,6 +78,7 @@ export class ComponentTools implements ToolExecutor {
             {
                 name: 'set_component_property',
                 description: 'Set component property values for UI components or custom script components. Supports setting properties of built-in UI components (e.g., cc.Label, cc.Sprite) and custom script components. Note: For node basic properties (name, active, layer, etc.), use set_node_property. For node transform properties (position, rotation, scale, etc.), use set_node_transform.',
+                displayDescription: '컴포넌트 속성 설정',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -149,6 +154,7 @@ export class ComponentTools implements ToolExecutor {
             {
                 name: 'attach_script',
                 description: 'Attach a script component to a node',
+                displayDescription: '노드에 스크립트 첨부',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -167,6 +173,7 @@ export class ComponentTools implements ToolExecutor {
             {
                 name: 'get_available_components',
                 description: 'Get list of available component types',
+                displayDescription: '사용 가능한 컴포넌트 목록 조회',
                 inputSchema: {
                     type: 'object',
                     properties: {

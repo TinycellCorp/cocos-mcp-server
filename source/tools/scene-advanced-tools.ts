@@ -6,6 +6,7 @@ export class SceneAdvancedTools implements ToolExecutor {
             {
                 name: 'reset_node_property',
                 description: 'Reset node property to default value',
+                displayDescription: '노드 속성을 기본값으로 리셋',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -24,6 +25,7 @@ export class SceneAdvancedTools implements ToolExecutor {
             {
                 name: 'move_array_element',
                 description: 'Move array element position',
+                displayDescription: '배열 요소 위치 이동',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -50,6 +52,7 @@ export class SceneAdvancedTools implements ToolExecutor {
             {
                 name: 'remove_array_element',
                 description: 'Remove array element at specific index',
+                displayDescription: '특정 인덱스의 배열 요소 삭제',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -72,6 +75,7 @@ export class SceneAdvancedTools implements ToolExecutor {
             {
                 name: 'copy_node',
                 description: 'Copy node for later paste operation',
+                displayDescription: '노드 복사',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -89,6 +93,7 @@ export class SceneAdvancedTools implements ToolExecutor {
             {
                 name: 'paste_node',
                 description: 'Paste previously copied nodes',
+                displayDescription: '노드 붙여넣기',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -115,6 +120,7 @@ export class SceneAdvancedTools implements ToolExecutor {
             {
                 name: 'cut_node',
                 description: 'Cut node (copy + mark for move)',
+                displayDescription: '노드 잘라내기',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -132,6 +138,7 @@ export class SceneAdvancedTools implements ToolExecutor {
             {
                 name: 'reset_node_transform',
                 description: 'Reset node position, rotation and scale',
+                displayDescription: '노드 트랜스폼 리셋',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -146,6 +153,7 @@ export class SceneAdvancedTools implements ToolExecutor {
             {
                 name: 'reset_component',
                 description: 'Reset component to default values',
+                displayDescription: '컴포넌트를 기본값으로 리셋',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -160,6 +168,7 @@ export class SceneAdvancedTools implements ToolExecutor {
             {
                 name: 'restore_prefab',
                 description: 'Restore prefab instance from asset',
+                displayDescription: '프리팹 인스턴스 복원',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -178,6 +187,7 @@ export class SceneAdvancedTools implements ToolExecutor {
             {
                 name: 'execute_component_method',
                 description: 'Execute method on component',
+                displayDescription: '컴포넌트 메서드 실행',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -201,6 +211,7 @@ export class SceneAdvancedTools implements ToolExecutor {
             {
                 name: 'execute_scene_script',
                 description: 'Execute scene script method',
+                displayDescription: '씬 스크립트 메서드 실행',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -224,6 +235,7 @@ export class SceneAdvancedTools implements ToolExecutor {
             {
                 name: 'scene_snapshot',
                 description: 'Create scene state snapshot',
+                displayDescription: '씬 상태 스냅샷 생성',
                 inputSchema: {
                     type: 'object',
                     properties: {}
@@ -232,6 +244,7 @@ export class SceneAdvancedTools implements ToolExecutor {
             {
                 name: 'scene_snapshot_abort',
                 description: 'Abort scene snapshot creation',
+                displayDescription: '씬 스냅샷 생성 중단',
                 inputSchema: {
                     type: 'object',
                     properties: {}
@@ -240,6 +253,7 @@ export class SceneAdvancedTools implements ToolExecutor {
             {
                 name: 'begin_undo_recording',
                 description: 'Begin recording undo data',
+                displayDescription: '실행취소 데이터 기록 시작',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -254,6 +268,7 @@ export class SceneAdvancedTools implements ToolExecutor {
             {
                 name: 'end_undo_recording',
                 description: 'End recording undo data',
+                displayDescription: '실행취소 데이터 기록 종료',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -268,6 +283,7 @@ export class SceneAdvancedTools implements ToolExecutor {
             {
                 name: 'cancel_undo_recording',
                 description: 'Cancel undo recording',
+                displayDescription: '실행취소 기록 취소',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -282,6 +298,7 @@ export class SceneAdvancedTools implements ToolExecutor {
             {
                 name: 'soft_reload_scene',
                 description: 'Soft reload current scene',
+                displayDescription: '현재 씬 소프트 리로드',
                 inputSchema: {
                     type: 'object',
                     properties: {}
@@ -290,6 +307,7 @@ export class SceneAdvancedTools implements ToolExecutor {
             {
                 name: 'query_scene_ready',
                 description: 'Check if scene is ready',
+                displayDescription: '씬 준비 상태 조회',
                 inputSchema: {
                     type: 'object',
                     properties: {}
@@ -298,6 +316,7 @@ export class SceneAdvancedTools implements ToolExecutor {
             {
                 name: 'query_scene_dirty',
                 description: 'Check if scene has unsaved changes',
+                displayDescription: '씬 미저장 변경사항 조회',
                 inputSchema: {
                     type: 'object',
                     properties: {}
@@ -306,6 +325,7 @@ export class SceneAdvancedTools implements ToolExecutor {
             {
                 name: 'query_scene_classes',
                 description: 'Query all registered classes',
+                displayDescription: '등록된 모든 클래스 조회',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -319,6 +339,7 @@ export class SceneAdvancedTools implements ToolExecutor {
             {
                 name: 'query_scene_components',
                 description: 'Query available scene components',
+                displayDescription: '사용 가능한 씬 컴포넌트 조회',
                 inputSchema: {
                     type: 'object',
                     properties: {}
@@ -327,6 +348,7 @@ export class SceneAdvancedTools implements ToolExecutor {
             {
                 name: 'query_component_has_script',
                 description: 'Check if component has script',
+                displayDescription: '컴포넌트 스크립트 보유 여부 조회',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -341,6 +363,7 @@ export class SceneAdvancedTools implements ToolExecutor {
             {
                 name: 'query_nodes_by_asset_uuid',
                 description: 'Find nodes that use specific asset UUID',
+                displayDescription: '특정 애셋을 사용하는 노드 조회',
                 inputSchema: {
                     type: 'object',
                     properties: {

@@ -15,6 +15,7 @@ export interface ServerStatus {
 export interface ToolDefinition {
     name: string;
     description: string;
+    displayDescription?: string;
     inputSchema: any;
 }
 
@@ -132,6 +133,7 @@ export interface ToolConfig {
     name: string;
     enabled: boolean;
     description: string;
+    displayDescription?: string;
 }
 
 export interface ToolConfiguration {

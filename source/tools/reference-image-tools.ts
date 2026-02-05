@@ -6,6 +6,7 @@ export class ReferenceImageTools implements ToolExecutor {
             {
                 name: 'add_reference_image',
                 description: 'Add reference image(s) to scene',
+                displayDescription: '참조 이미지 추가',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -21,6 +22,7 @@ export class ReferenceImageTools implements ToolExecutor {
             {
                 name: 'remove_reference_image',
                 description: 'Remove reference image(s)',
+                displayDescription: '참조 이미지 제거',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -35,6 +37,7 @@ export class ReferenceImageTools implements ToolExecutor {
             {
                 name: 'switch_reference_image',
                 description: 'Switch to specific reference image',
+                displayDescription: '참조 이미지 전환',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -53,6 +56,7 @@ export class ReferenceImageTools implements ToolExecutor {
             {
                 name: 'set_reference_image_data',
                 description: 'Set reference image transform and display properties',
+                displayDescription: '참조 이미지 데이터 설정',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -71,6 +75,7 @@ export class ReferenceImageTools implements ToolExecutor {
             {
                 name: 'query_reference_image_config',
                 description: 'Query reference image configuration',
+                displayDescription: '참조 이미지 설정 조회',
                 inputSchema: {
                     type: 'object',
                     properties: {}
@@ -79,6 +84,7 @@ export class ReferenceImageTools implements ToolExecutor {
             {
                 name: 'query_current_reference_image',
                 description: 'Query current reference image data',
+                displayDescription: '현재 참조 이미지 데이터 조회',
                 inputSchema: {
                     type: 'object',
                     properties: {}
@@ -87,6 +93,7 @@ export class ReferenceImageTools implements ToolExecutor {
             {
                 name: 'refresh_reference_image',
                 description: 'Refresh reference image display',
+                displayDescription: '참조 이미지 새로고침',
                 inputSchema: {
                     type: 'object',
                     properties: {}
@@ -95,6 +102,7 @@ export class ReferenceImageTools implements ToolExecutor {
             {
                 name: 'set_reference_image_position',
                 description: 'Set reference image position',
+                displayDescription: '참조 이미지 위치 설정',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -113,6 +121,7 @@ export class ReferenceImageTools implements ToolExecutor {
             {
                 name: 'set_reference_image_scale',
                 description: 'Set reference image scale',
+                displayDescription: '참조 이미지 스케일 설정',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -135,6 +144,7 @@ export class ReferenceImageTools implements ToolExecutor {
             {
                 name: 'set_reference_image_opacity',
                 description: 'Set reference image opacity',
+                displayDescription: '참조 이미지 투명도 설정',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -151,6 +161,7 @@ export class ReferenceImageTools implements ToolExecutor {
             {
                 name: 'list_reference_images',
                 description: 'List all available reference images',
+                displayDescription: '참조 이미지 목록 조회',
                 inputSchema: {
                     type: 'object',
                     properties: {}
@@ -159,6 +170,7 @@ export class ReferenceImageTools implements ToolExecutor {
             {
                 name: 'clear_all_reference_images',
                 description: 'Clear all reference images',
+                displayDescription: '참조 이미지 모두 제거',
                 inputSchema: {
                     type: 'object',
                     properties: {}

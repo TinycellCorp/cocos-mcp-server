@@ -10,7 +10,8 @@ export class ToolManager {
     constructor() {
         this.settings = this.readToolManagerSettings();
         this.initializeAvailableTools();
-        
+        this.syncDescriptions();
+
         // 如果没有配置，自动创建一个默认配置
         if (this.settings.configurations.length === 0) {
             console.log('[ToolManager] No configurations found, creating default configuration...');
@@ -124,7 +125,8 @@ export class ToolManager {
                         category: category,
                         name: tool.name,
                         enabled: true, // 默认启用
-                        description: tool.description
+                        description: tool.description,
+                        displayDescription: tool.displayDescription
                     });
                 });
             }
@@ -415,6 +417,36 @@ export class ToolManager {
             configurations: this.getConfigurations(),
             maxConfigSlots: this.settings.maxConfigSlots
         };
+    }
+
+    private syncDescriptions(): void {
+        const sourceDescMap = new Map<string, { description: string; displayDescription?: string }>();
+        this.availableTools.forEach(tool => {
+            sourceDescMap.set(`${tool.category}_${tool.name}`, {
+                description: tool.description,
+                displayDescription: tool.displayDescription
+            });
+        });
+
+        let changed = false;
+        this.settings.configurations.forEach(config => {
+            config.tools.forEach(tool => {
+                const key = `${tool.category}_${tool.name}`;
+                const source = sourceDescMap.get(key);
+                if (source) {
+                    if (tool.description !== source.description || tool.displayDescription !== source.displayDescription) {
+                        tool.description = source.description;
+                        tool.displayDescription = source.displayDescription;
+                        changed = true;
+                    }
+                }
+            });
+        });
+
+        if (changed) {
+            console.log('[ToolManager] Synced descriptions from source to persisted configs');
+            this.saveSettings();
+        }
     }
 
     private saveSettings(): void {

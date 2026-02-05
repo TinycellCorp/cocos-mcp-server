@@ -8,6 +8,7 @@ export class NodeTools implements ToolExecutor {
             {
                 name: 'create_node',
                 description: 'Create a new node in the scene. Supports creating empty nodes, nodes with components, or instantiating from assets (prefabs, etc.). IMPORTANT: You should always provide parentUuid to specify where to create the node.',
+                displayDescription: '씬에 새 노드 생성',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -90,6 +91,7 @@ export class NodeTools implements ToolExecutor {
             {
                 name: 'get_node_info',
                 description: 'Get node information by UUID',
+                displayDescription: 'UUID로 노드 정보 조회',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -104,6 +106,7 @@ export class NodeTools implements ToolExecutor {
             {
                 name: 'find_nodes',
                 description: 'Find nodes by name pattern',
+                displayDescription: '이름 패턴으로 노드 검색',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -123,6 +126,7 @@ export class NodeTools implements ToolExecutor {
             {
                 name: 'find_node_by_name',
                 description: 'Find first node by exact name',
+                displayDescription: '정확한 이름으로 첫 번째 노드 검색',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -137,6 +141,7 @@ export class NodeTools implements ToolExecutor {
             {
                 name: 'get_all_nodes',
                 description: 'Get all nodes in the scene with their UUIDs',
+                displayDescription: '씬의 모든 노드 조회',
                 inputSchema: {
                     type: 'object',
                     properties: {}
@@ -145,6 +150,7 @@ export class NodeTools implements ToolExecutor {
             {
                 name: 'set_node_property',
                 description: 'Set node property value (prefer using set_node_transform for active/layer/mobility/position/rotation/scale)',
+                displayDescription: '노드 속성값 설정',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -166,6 +172,7 @@ export class NodeTools implements ToolExecutor {
             {
                 name: 'set_node_transform',
                 description: 'Set node transform properties (position, rotation, scale) with unified interface. Automatically handles 2D/3D node differences.',
+                displayDescription: '노드 트랜스폼 설정',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -207,6 +214,7 @@ export class NodeTools implements ToolExecutor {
             {
                 name: 'delete_node',
                 description: 'Delete a node from scene',
+                displayDescription: '씬에서 노드 삭제',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -221,6 +229,7 @@ export class NodeTools implements ToolExecutor {
             {
                 name: 'move_node',
                 description: 'Move node to new parent',
+                displayDescription: '노드를 새 부모로 이동',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -244,6 +253,7 @@ export class NodeTools implements ToolExecutor {
             {
                 name: 'duplicate_node',
                 description: 'Duplicate a node',
+                displayDescription: '노드 복제',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -263,6 +273,7 @@ export class NodeTools implements ToolExecutor {
             {
                 name: 'detect_node_type',
                 description: 'Detect if a node is 2D or 3D based on its components and properties',
+                displayDescription: '노드 타입(2D/3D) 감지',
                 inputSchema: {
                     type: 'object',
                     properties: {

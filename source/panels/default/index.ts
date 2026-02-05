@@ -12,6 +12,7 @@ interface ToolConfig {
     name: string;
     enabled: boolean;
     description: string;
+    displayDescription?: string;
 }
 
 // 定义配置接口

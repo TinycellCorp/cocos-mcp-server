@@ -34,6 +34,7 @@ export class DebugTools implements ToolExecutor {
             {
                 name: 'get_console_logs',
                 description: 'Get editor console logs',
+                displayDescription: '에디터 콘솔 로그 조회',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -54,6 +55,7 @@ export class DebugTools implements ToolExecutor {
             {
                 name: 'clear_console',
                 description: 'Clear editor console',
+                displayDescription: '에디터 콘솔 지우기',
                 inputSchema: {
                     type: 'object',
                     properties: {}
@@ -62,6 +64,7 @@ export class DebugTools implements ToolExecutor {
             {
                 name: 'execute_script',
                 description: 'Execute JavaScript in scene context',
+                displayDescription: '씬 컨텍스트에서 JavaScript 실행',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -76,6 +79,7 @@ export class DebugTools implements ToolExecutor {
             {
                 name: 'get_node_tree',
                 description: 'Get detailed node tree for debugging',
+                displayDescription: '디버깅용 노드 트리 조회',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -94,6 +98,7 @@ export class DebugTools implements ToolExecutor {
             {
                 name: 'get_performance_stats',
                 description: 'Get performance statistics',
+                displayDescription: '성능 통계 조회',
                 inputSchema: {
                     type: 'object',
                     properties: {}
@@ -102,6 +107,7 @@ export class DebugTools implements ToolExecutor {
             {
                 name: 'validate_scene',
                 description: 'Validate current scene for issues',
+                displayDescription: '현재 씬 이슈 검증',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -121,6 +127,7 @@ export class DebugTools implements ToolExecutor {
             {
                 name: 'get_editor_info',
                 description: 'Get editor and environment information',
+                displayDescription: '에디터 및 환경 정보 조회',
                 inputSchema: {
                     type: 'object',
                     properties: {}
@@ -129,6 +136,7 @@ export class DebugTools implements ToolExecutor {
             {
                 name: 'get_project_logs',
                 description: 'Get project logs from temp/logs/project.log file',
+                displayDescription: 'temp/logs/project.log 파일에서 프로젝트 로그 조회',
                 inputSchema: {
                     type: 'object',
                     properties: {
@@ -155,6 +163,7 @@ export class DebugTools implements ToolExecutor {
             {
                 name: 'get_log_file_info',
                 description: 'Get information about the project log file',
+                displayDescription: '프로젝트 로그 파일 정보 조회',
                 inputSchema: {
                     type: 'object',
                     properties: {}
@@ -163,6 +172,7 @@ export class DebugTools implements ToolExecutor {
             {
                 name: 'search_project_logs',
                 description: 'Search for specific patterns or errors in project logs',
+                displayDescription: '프로젝트 로그에서 특정 패턴이나 에러 검색',
                 inputSchema: {
                     type: 'object',
                     properties: {
