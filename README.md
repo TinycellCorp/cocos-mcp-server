@@ -2,7 +2,7 @@
 
 **[📖 English](README.EN.md)**  **[📖 中文](README.md)**
 
-一个适用于 Cocos Creator 3.8+ 的综合性 MCP（模型上下文协议）服务器插件，使 AI 助手能够通过标准化协议与 Cocos Creator 编辑器进行交互。一键安装和使用，省去所有繁琐环境和配置。已经测试过Claude客户端Claude CLI和Cursor，其他的编辑器理论上也完美支持。
+一个适用于 Cocos Creator 3.5+ 的综合性 MCP（模型上下文协议）服务器插件，使 AI 助手能够通过标准化协议与 Cocos Creator 编辑器进行交互。一键安装和使用，省去所有繁琐环境和配置。已经测试过Claude客户端Claude CLI和Cursor，其他的编辑器理论上也完美支持。
 
 **🚀 现在提供 50 个强力融合工具，实现99%的编辑器控制！**
 
@@ -413,7 +413,7 @@ npm run build
 
 ## 系统要求
 
-- Cocos Creator 3.8.6 或更高版本
+- Cocos Creator 3.5.0 或更高版本（推荐 3.8.6+）
 - Node.js（Cocos Creator 自带）
 - TypeScript（作为开发依赖安装）
 
