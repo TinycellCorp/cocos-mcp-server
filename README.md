@@ -1,42 +1,174 @@
-# Cocos Creator MCP 服务器插件
+# Cocos Creator MCP 서버 플러그인
 
-**[📖 English](README.EN.md)**  **[📖 中文](README.md)**
+**[📖 English](README.EN.md)** **[📖 中文](README.CN.md)** **[📖 한국어](README.md)**
 
-一个适用于 Cocos Creator 3.5+ 的综合性 MCP（模型上下文协议）服务器插件，使 AI 助手能够通过标准化协议与 Cocos Creator 编辑器进行交互。一键安装和使用，省去所有繁琐环境和配置。已经测试过Claude客户端Claude CLI和Cursor，其他的编辑器理论上也完美支持。
+Cocos Creator 3.5+ 용 MCP(Model Context Protocol) 서버 플러그인입니다. AI 어시스턴트가 표준화된 프로토콜을 통해 Cocos Creator 에디터와 상호작용할 수 있게 해줍니다. 원클릭 설치, 복잡한 환경설정 불필요. Claude 데스크톱, Claude CLI, Cursor 등 주요 클라이언트에서 테스트 완료되었으며, 다른 에디터도 이론상 완벽 지원합니다.
 
-**🚀 现在提供 50 个强力融合工具，实现99%的编辑器控制！**
+**50개 핵심 도구로 에디터 기능 99% 커버!**
 
-## 视频演示和教学
+## 영상 데모
 
-[<img width="503" height="351" alt="image" src="https://github.com/user-attachments/assets/f186ce14-9ffc-4a29-8761-48bdd7c1ea16" />](https://www.bilibili.com/video/BV1mB8dzfEw8?spm_id_from=333.788.recommend_more_video.0&vd_source=6b1ff659dd5f04a92cc6d14061e8bb92)
+[<img width="503" height="351" alt="데모 영상" src="https://github.com/user-attachments/assets/f186ce14-9ffc-4a29-8761-48bdd7c1ea16" />](https://www.bilibili.com/video/BV1mB8dzfEw8?spm_id_from=333.788.recommend_more_video.0&vd_source=6b1ff659dd5f04a92cc6d14061e8bb92)
 
+## 바로가기
 
-##快速链接
+- **[📖 전체 기능 가이드 (English)](FEATURE_GUIDE_EN.md)** - 전체 도구 상세 문서 (보완 중)
+- **[📖 전체 기능 가이드 (中文)](FEATURE_GUIDE_CN.md)** - 전체 도구 상세 문서 (보완 중)
 
-- **[📖 Complete Feature Guide (English)](FEATURE_GUIDE_EN.md)** - Detailed documentation for all 158 tools（待补充）
-- **[📖 完整功能指南 (中文)](FEATURE_GUIDE_CN.md)** - 所有158工具的详细文档（待补充）
+---
 
+## 빠른 설치 (Claude CLI 스킬)
 
-## 更新日志
+Claude CLI를 사용 중이라면 `/cocos-mcp-setup` 스킬로 Cocos 3.x 프로젝트에 원클릭 설치할 수 있습니다.
 
-## 🚀 重大更新 v1.5.0（2024年7月29日）（已经在cocos 商城更新，github版本将在下个版本同步更新）
+### 사전 준비
 
-cocos store：https://store.cocos.com/app/detail/7941
+1. [Claude CLI](https://docs.anthropic.com/en/docs/claude-code)가 설치되어 있어야 합니다.
+2. 스킬 파일(`skills/cocos-mcp-setup/SKILL.md`)을 Claude가 인식할 수 있도록 설정해야 합니다.
 
-- **工具精简与重构**：将原有150+工具浓缩规整为50个高复用、高覆盖率的核心工具，去除所有无效冗余代码，极大提升易用性和可维护性。
-- **操作码统一**：所有工具均采用“操作码+参数”模式，极大简化AI调用流程，提升AI调用成功率，减少AI调用次数，降低50% token消耗。
-- **预制体功能全面升级**：彻底修复和完善预制体的创建、实例化、同步、引用等所有核心功能，支持复杂引用关系，100%对齐官方格式。
-- **事件绑定与老功能补全**：补充并实现了事件绑定、节点/组件/资源等老功能，所有方法与官方实现完全对齐。
-- **接口优化**：所有接口参数更清晰，文档更完善，AI更容易理解和调用。
-- **插件面板优化**：面板UI更简洁，操作更直观。
-- **性能与兼容性提升**：整体架构更高效，兼容Cocos Creator 3.8.6及以上所有版本。
+### 스킬 설치
 
+이 저장소의 `skills/` 디렉토리를 프로젝트의 `.claude/skills/`에 복사하거나, 전역 스킬로 등록합니다.
 
-## 工具体系与操作码
+```bash
+# 방법 1: 프로젝트 로컬 스킬로 복사
+mkdir -p .claude/skills
+cp -r <cocos-mcp-server 경로>/skills/cocos-mcp-setup .claude/skills/
 
-- 所有工具均以“类别_操作”命名，参数采用统一Schema，支持多操作码（action）切换，极大提升灵活性和可扩展性。
-- 50个核心工具涵盖场景、节点、组件、预制体、资源、项目、调试、偏好设置、服务器、消息广播等全部编辑器操作。
-- 工具调用示例：
+# 방법 2: 전역 스킬로 복사 (모든 프로젝트에서 사용)
+mkdir -p ~/.claude/skills
+cp -r <cocos-mcp-server 경로>/skills/cocos-mcp-setup ~/.claude/skills/
+```
+
+### 실행
+
+Cocos Creator 프로젝트 루트에서 Claude CLI를 열고 다음을 입력합니다.
+
+```
+/cocos-mcp-setup
+```
+
+스킬이 자동으로 다음 작업을 수행합니다:
+
+1. 현재 디렉토리가 Cocos Creator 프로젝트인지 확인 (`assets/` 폴더 존재 여부)
+2. `extensions/cocos-mcp-server/`에 플러그인을 git clone (이미 있으면 git pull로 업데이트)
+3. `npm install --production` 으로 의존성 설치
+
+### 설치 후 설정
+
+```bash
+# 1. Cocos Creator 에디터에서 프로젝트를 열고
+#    확장 > Cocos MCP Server 패널에서 서버를 시작합니다.
+
+# 2. MCP 헬스체크 (포트는 에디터에서 설정한 번호)
+curl http://127.0.0.1:3000/mcp
+
+# 3. Claude CLI에 MCP 서버 등록
+claude mcp add --transport http --scope local cocos-creator http://127.0.0.1:3000/mcp
+```
+
+---
+
+## 수동 설치
+
+### 1. 플러그인 복사
+
+`cocos-mcp-server` 폴더 전체를 Cocos Creator 프로젝트의 `extensions` 디렉토리에 복사합니다. 에디터의 확장 관리자에서 직접 임포트할 수도 있습니다.
+
+```
+프로젝트/
+├── assets/
+├── extensions/
+│   └── cocos-mcp-server/          <- 여기에 배치
+│       ├── source/
+│       ├── dist/
+│       ├── package.json
+│       └── ...
+├── settings/
+└── ...
+```
+
+### 2. 의존성 설치
+
+```bash
+cd extensions/cocos-mcp-server
+npm install
+```
+
+### 3. 빌드
+
+```bash
+npm run build
+```
+
+### 4. 플러그인 활성화
+
+1. Cocos Creator를 재시작하거나 확장을 새로고침합니다.
+2. 확장 메뉴에 플러그인이 나타납니다.
+3. `확장 > Cocos MCP Server`를 클릭해 제어판을 엽니다.
+
+---
+
+## MCP 클라이언트 설정
+
+### Claude CLI
+
+```bash
+claude mcp add --transport http cocos-creator http://127.0.0.1:3000/mcp
+```
+
+### Claude 데스크톱
+
+```json
+{
+  "mcpServers": {
+    "cocos-creator": {
+      "type": "http",
+      "url": "http://127.0.0.1:3000/mcp"
+    }
+  }
+}
+```
+
+### Cursor / VS Code 계열
+
+```json
+{
+  "mcpServers": {
+    "cocos-creator": {
+      "url": "http://localhost:3000/mcp"
+    }
+  }
+}
+```
+
+> 포트 번호는 에디터 패널에서 설정한 값으로 변경하세요. 기본값은 3000입니다.
+
+---
+
+## 사용법
+
+### 서버 시작
+
+1. `확장 > Cocos MCP Server`에서 MCP 서버 패널을 엽니다.
+2. 설정 항목:
+   - **포트**: HTTP 서버 포트 (기본: 3000)
+   - **자동 시작**: 에디터 시작 시 서버 자동 실행
+   - **디버그 로그**: 개발 디버깅을 위한 상세 로그
+   - **최대 연결 수**: 최대 동시 연결 수
+3. "서버 시작" 버튼을 클릭합니다.
+
+### AI 어시스턴트 연결
+
+서버는 `http://localhost:3000/mcp` (또는 설정한 포트)에서 HTTP 엔드포인트를 제공합니다. AI 어시스턴트가 MCP 프로토콜로 연결하여 모든 도구에 접근할 수 있습니다.
+
+---
+
+## 도구 체계
+
+모든 도구는 "카테고리_동작" 형태로 명명되며, 통일된 Schema 파라미터와 액션 코드를 사용합니다. 50개 핵심 도구가 에디터 전체 기능을 커버합니다.
+
+### 호출 예시
 
 ```json
 {
@@ -52,286 +184,152 @@ cocos store：https://store.cocos.com/app/detail/7941
 
 ---
 
-## 主要功能类别（部分示例）
-
-- **scene_management**：场景管理（获取/打开/保存/新建/关闭场景）
-- **node_query / node_lifecycle / node_transform**：节点查询、创建、删除、属性变更
-- **component_manage / component_script / component_query**：组件增删、脚本挂载、组件信息
-- **prefab_browse / prefab_lifecycle / prefab_instance**：预制体浏览、创建、实例化、同步
-- **asset_manage / asset_analyze**：资源导入、删除、依赖分析
-- **project_manage / project_build_system**：项目运行、构建、配置信息
-- **debug_console / debug_logs**：控制台与日志管理
-- **preferences_manage**：偏好设置
-- **server_info**：服务器信息
-- **broadcast_message**：消息广播
-
-
-### v1.4.0 - 2025年7月26日（当前github版本）
+## 기능 목록
+
+### 씬 조작 (scene_*)
+- **scene_management**: 씬 관리 - 현재 씬 조회, 열기/저장/생성/닫기, 씬 목록 조회
+- **scene_hierarchy**: 씬 계층 구조 - 전체 씬 구조 조회, 컴포넌트 정보 포함
+- **scene_execution_control**: 실행 제어 - 컴포넌트 메서드 실행, 씬 스크립트 실행, 프리팹 동기화
+
+### 노드 조작 (node_*)
+- **node_query**: 노드 조회 - 이름/패턴으로 노드 검색, 노드 정보 조회, 2D/3D 타입 감지
+- **node_lifecycle**: 노드 생명주기 - 생성/삭제, 컴포넌트 사전 장착, 프리팹 인스턴스화
+- **node_transform**: 노드 변환 - 이름, 위치, 회전, 스케일, 가시성 등 속성 수정
+- **node_hierarchy**: 노드 계층 - 이동, 복사, 붙여넣기, 계층 구조 조작
+- **node_clipboard**: 노드 클립보드 - 복사/붙여넣기/잘라내기
+- **node_property_management**: 속성 관리 - 노드, 컴포넌트, 변환 속성 초기화
+
+### 컴포넌트 조작 (component_*)
+- **component_manage**: 컴포넌트 관리 - 엔진 컴포넌트 추가/삭제 (cc.Sprite, cc.Button 등)
+- **component_script**: 스크립트 컴포넌트 - 커스텀 스크립트 장착/제거
+- **component_query**: 컴포넌트 조회 - 컴포넌트 목록, 상세 정보, 사용 가능한 타입
+- **set_component_property**: 속성 설정 - 단일/다중 컴포넌트 속성값 설정
+
+### 프리팹 조작 (prefab_*)
+- **prefab_browse**: 프리팹 탐색 - 목록 조회, 정보 확인, 파일 검증
+- **prefab_lifecycle**: 프리팹 생명주기 - 노드에서 프리팹 생성, 삭제
+- **prefab_instance**: 프리팹 인스턴스 - 씬에 인스턴스화, 링크 해제, 변경 적용, 원본 복원
+- **prefab_edit**: 프리팹 편집 - 편집 모드 진입/종료, 저장, 변경 테스트
+
+### 프로젝트 제어 (project_*)
+- **project_manage**: 프로젝트 관리 - 실행, 빌드, 프로젝트 정보 및 설정 조회
+- **project_build_system**: 빌드 시스템 - 빌드 패널 제어, 빌드 상태 확인, 프리뷰 서버 관리
+
+### 디버그 도구 (debug_*)
+- **debug_console**: 콘솔 관리 - 콘솔 로그 조회/삭제, 필터링 및 제한
+- **debug_logs**: 로그 분석 - 프로젝트 로그 파일 읽기/검색/분석, 패턴 매칭
+- **debug_system**: 시스템 디버그 - 에디터 정보, 성능 통계, 환경 정보
+
+### 리소스 관리 (asset_*)
+- **asset_manage**: 리소스 관리 - 일괄 임포트/삭제, 메타데이터 저장, URL 생성
+- **asset_analyze**: 리소스 분석 - 의존 관계 조회, 리소스 매니페스트 내보내기
+- **asset_system**: 리소스 시스템 - 리소스 새로고침, DB 상태 조회
+- **asset_query**: 리소스 조회 - 타입/폴더별 조회, 상세 정보
+- **asset_operations**: 리소스 조작 - 생성/복사/이동/삭제/저장/재임포트
+
+### 환경설정 (preferences_*)
+- **preferences_manage**: 환경설정 관리 - 에디터 환경설정 조회/설정
+- **preferences_global**: 전역 설정 - 전역 구성 및 시스템 설정 관리
+
+### 서버 및 브로드캐스트 (server_* / broadcast_*)
+- **server_info**: 서버 정보 - 서버 상태, 프로젝트 정보, 환경 정보
+- **broadcast_message**: 메시지 브로드캐스트 - 커스텀 메시지 수신 및 전송
+
+### 참조 이미지 (referenceImage_*)
+- **reference_image_manage**: 참조 이미지 관리 - 씬 뷰에서 참조 이미지 추가/삭제/관리
+- **reference_image_view**: 참조 이미지 뷰 - 표시 및 편집 제어
+
+### 씬 뷰 (sceneView_*)
+- **scene_view_control**: 씬 뷰 제어 - Gizmo 도구, 좌표계, 뷰 모드 제어
+- **scene_view_tools**: 씬 뷰 도구 - 각종 도구 및 옵션 관리
+
+### 검증 도구 (validation_*)
+- **validation_scene**: 씬 검증 - 씬 무결성 확인, 누락된 리소스 검사
+- **validation_asset**: 리소스 검증 - 리소스 참조 및 무결성 검사
+
+### 도구 관리
+- **도구 설정 시스템**: 도구 선택적 활성화/비활성화, 다중 설정 지원
+- **설정 영속화**: 자동 저장 및 로드
+- **설정 가져오기/내보내기**: 도구 설정 파일 교환
+- **실시간 상태 관리**: 도구 상태 실시간 업데이트 및 동기화
+
+---
+
+## 핵심 장점
+
+- **액션 코드 통일**: 모든 도구가 "카테고리_동작" 명명, 파라미터 Schema 통일
+- **높은 재사용성**: 50개 핵심 도구로 에디터 기능 99% 커버
+- **AI 친화적**: 파라미터 명확, 문서 완비, 호출 간편
+- **성능 최적화**: 토큰 소비 50% 절감, AI 호출 성공률 향상
+- **완벽 호환**: Cocos Creator 공식 API와 100% 정렬
+
+---
+
+## 업데이트 로그
+
+### v1.5.0 - 2025년 7월 29일 (Cocos 스토어 업데이트 완료, GitHub 버전은 다음 버전에 동기화)
+
+Cocos Store: https://store.cocos.com/app/detail/7941
+
+- **도구 정비 및 리팩토링**: 기존 150+ 도구를 50개 고재사용/고커버리지 핵심 도구로 압축, 모든 불필요한 코드 제거
+- **액션 코드 통일**: 모든 도구에 "액션 코드+파라미터" 패턴 적용, AI 호출 흐름 대폭 간소화, 토큰 50% 절감
+- **프리팹 기능 전면 업그레이드**: 프리팹 생성, 인스턴스화, 동기화, 참조 등 모든 핵심 기능 완전 수정 및 보완
+- **이벤트 바인딩 및 기존 기능 보완**: 이벤트 바인딩, 노드/컴포넌트/리소스 등 기존 기능 구현 완료
+- **인터페이스 최적화**: 모든 인터페이스 파라미터 명확화, 문서 보완
+- **플러그인 패널 최적화**: 패널 UI 간소화, 조작 직관성 향상
+- **성능 및 호환성 개선**: 전체 아키텍처 효율화, Cocos Creator 3.8.6 이상 모든 버전 호환
+
+### v1.4.0 - 2025년 7월 26일 (현재 GitHub 버전)
+
+#### 주요 기능 수정
+- **프리팹 생성 기능 완전 수정**: 프리팹 생성 시 컴포넌트/노드/리소스 타입 참조 소실 문제 완전 해결
+- **올바른 참조 처리**: 수동 생성과 완전히 동일한 참조 포맷 구현
+  - **내부 참조**: 프리팹 내부의 노드/컴포넌트 참조를 `{"__id__": x}` 포맷으로 정확히 변환
+  - **외부 참조**: 외부 노드/컴포넌트 참조를 `null`로 올바르게 설정
+  - **리소스 참조**: 프리팹, 텍스처, 스프라이트 프레임 등 리소스 참조 UUID 포맷 완전 보존
+- **컴포넌트/스크립트 제거 API 표준화**: 제거 시 컴포넌트의 cid(type 필드)를 전달해야 함. 스크립트명이나 클래스명 사용 불가. getComponents로 type 필드(cid)를 먼저 조회 후 removeComponent에 전달
 
-#### 🎯 重大功能修复
-- **完全修复预制体创建功能**: 彻底解决了预制体创建时组件/节点/资源类型引用丢失的问题
-- **正确的引用处理**: 实现了与手动创建预制体完全一致的引用格式
-  - **内部引用**: 预制体内部的节点和组件引用正确转换为 `{"__id__": x}` 格式
-  - **外部引用**: 预制体外部的节点和组件引用正确设置为 `null`
-  - **资源引用**: 预制体、纹理、精灵帧等资源引用完整保留UUID格式
-- **组件/脚本移除API规范化**: 现在移除组件/脚本时，必须传入组件的cid（type字段），不能用脚本名或类名。AI和用户应先用getComponents获取type字段（cid），再传给removeComponent。这样能100%准确移除所有类型组件和脚本，兼容所有Cocos Creator版本。
+#### 핵심 개선
+- **인덱스 순서 최적화**: 프리팹 객체 생성 순서를 Cocos Creator 표준 포맷에 맞게 조정
+- **컴포넌트 타입 지원**: cc.으로 시작하는 모든 컴포넌트 타입 참조 감지 확장 (Label, Button, Sprite 등)
+- **UUID 매핑 메커니즘**: 내부 UUID-인덱스 매핑 시스템 보완
+- **속성 포맷 표준화**: 컴포넌트 속성 순서 및 포맷 수정, 엔진 파싱 오류 해소
 
-#### 🔧 核心改进
-- **索引顺序优化**: 调整预制体对象创建顺序，确保与Cocos Creator标准格式一致
-- **组件类型支持**: 扩展组件引用检测，支持所有cc.开头的组件类型（Label、Button、Sprite等）
-- **UUID映射机制**: 完善内部UUID到索引的映射系统，确保引用关系正确建立
-- **属性格式标准化**: 修复组件属性顺序和格式，消除引擎解析错误
+#### 버그 수정
+- `Cannot read properties of undefined (reading '_name')` 오류 해결
+- `placeHolder.initDefault is not a function` 오류 해결
+- `_objFlags` 등 핵심 속성이 컴포넌트 데이터에 의해 덮어쓰이는 문제 수정
+- 모든 타입의 참조가 올바르게 저장/로드되도록 수정
 
-#### 🐛 错误修复
-- **修复预制体导入错误**: 解决 `Cannot read properties of undefined (reading '_name')` 错误
-- **修复引擎兼容性**: 解决 `placeHolder.initDefault is not a function` 错误
-- **修复属性覆盖**: 防止 `_objFlags` 等关键属性被组件数据覆盖
-- **修复引用丢失**: 确保所有类型的引用都能正确保存和加载
+### v1.3.0 - 2025년 7월 25일
 
-#### 📈 功能增强
-- **完整组件属性保留**: 包括私有属性（如_group、_density等）在内的所有组件属性
-- **子节点结构支持**: 正确处理预制体的层级结构和子节点关系
-- **变换属性处理**: 保留节点的位置、旋转、缩放和层级信息
-- **调试信息优化**: 添加详细的引用处理日志，便于问题追踪
+- 통합 도구 관리 패널 추가
+- 도구 설정 시스템 (선택적 활성화/비활성화, 영속화)
+- 동적 도구 로딩 (158개 도구 자동 발견)
+- Vue 3 Composition API 적용
+- IPC 통신 문제 수정
 
-#### 💡 技术突破
-- **引用类型识别**: 智能区分内部引用和外部引用，避免无效引用
-- **格式兼容性**: 生成的预制体与手动创建的预制体格式100%兼容
-- **引擎集成**: 预制体可以正常挂载到场景中，无任何运行时错误
-- **性能优化**: 优化预制体创建流程，提高大型预制体的处理效率
+### v1.2.0 - 이전 버전
 
-**🎉 现在预制体创建功能已完全可用，支持复杂的组件引用关系和完整的预制体结构！**
+- 초기 릴리즈, 151개 도구
+- 기본 MCP 서버 기능
+- 씬, 노드, 컴포넌트, 프리팹 조작
+- 프로젝트 제어 및 디버그 도구
 
-### v1.3.0 - 2024年7月25日
+---
 
-#### 🆕 新功能
-- **集成工具管理面板**: 在主控制面板中直接添加了全面的工具管理功能
-- **工具配置系统**: 实现了选择性工具启用/禁用，支持持久化配置
-- **动态工具加载**: 增强了工具发现功能，能够动态加载MCP服务器中的所有158个可用工具
-- **实时工具状态管理**: 添加了工具计数和状态的实时更新，当单个工具切换时立即反映
-- **配置持久化**: 在编辑器会话间自动保存和加载工具配置
+## 개발
 
-#### 🔧 改进
-- **统一面板界面**: 将工具管理合并到主MCP服务器面板作为标签页，消除了对单独面板的需求
-- **增强服务器设置**: 改进了服务器配置管理，具有更好的持久化和加载功能
-- **Vue 3集成**: 升级到Vue 3 Composition API，提供更好的响应性和性能
-- **更好的错误处理**: 添加了全面的错误处理，包含失败操作的回滚机制
-- **改进的UI/UX**: 增强了视觉设计，包含适当的分隔符、独特的块样式和非透明模态背景
-
-#### 🐛 错误修复
-- **修复工具状态持久化**: 解决了工具状态在标签页切换或面板重新打开时重置的问题
-- **修复配置加载**: 纠正了服务器设置加载问题和消息注册问题
-- **修复复选框交互**: 解决了复选框取消选中问题并改进了响应性
-- **修复面板滚动**: 确保工具管理面板中的正确滚动功能
-- **修复IPC通信**: 解决了前端和后端之间的各种IPC通信问题
+### 프로젝트 구조
 
-#### 🏗️ 技术改进
-- **简化架构**: 移除了多配置复杂性，专注于单一配置管理
-- **更好的类型安全**: 增强了TypeScript类型定义和接口
-- **改进数据同步**: 前端UI状态和后端工具管理器之间更好的同步
-- **增强调试**: 添加了全面的日志记录和调试功能
-
-#### 📊 统计信息
-- **总工具数**: 从151个增加到158个工具
-- **类别**: 13个工具类别，全面覆盖
-- **编辑器控制**: 实现98%的编辑器功能覆盖
-
-### v1.2.0 - 之前版本
-- 初始发布，包含151个工具
-- 基本MCP服务器功能
-- 场景、节点、组件和预制体操作
-- 项目控制和调试工具
-
-
-
-## 快速使用
-
-**Claude cli配置：**
-
-```
-claude mcp add --transport http cocos-creator http://127.0.0.1:3000/mcp（使用你自己配置的端口号）
-```
-
-**Claude客户端配置：**
-
-```
-{
-
-  "mcpServers": {
-
-		"cocos-creator": {
-
- 		"type": "http",
-
-		"url": "http://127.0.0.1:3000/mcp"
-
-		 }
-
-	  }
-
-}
-```
-
-**Cursor或VS类MCP配置**
-
-```
-{
-
-  "mcpServers": { 
-
-   "cocos-creator": {
-      "url": "http://localhost:3000/mcp"
-   }
-  }
-
-}
-```
-
-## 功能特性
-
-### 🎯 场景操作 (scene_*)
-- **scene_management**: 场景管理 - 获取当前场景、打开/保存/创建/关闭场景，支持场景列表查询
-- **scene_hierarchy**: 场景层级 - 获取完整场景结构，支持组件信息包含
-- **scene_execution_control**: 执行控制 - 执行组件方法、场景脚本、预制体同步
-
-### 🎮 节点操作 (node_*)
-- **node_query**: 节点查询 - 按名称/模式查找节点，获取节点信息，检测2D/3D类型
-- **node_lifecycle**: 节点生命周期 - 创建/删除节点，支持组件预装、预制体实例化
-- **node_transform**: 节点变换 - 修改节点名称、位置、旋转、缩放、可见性等属性
-- **node_hierarchy**: 节点层级 - 移动、复制、粘贴节点，支持层级结构操作
-- **node_clipboard**: 节点剪贴板 - 复制/粘贴/剪切节点操作
-- **node_property_management**: 属性管理 - 重置节点属性、组件属性、变换属性
-
-### 🔧 组件操作 (component_*)
-- **component_manage**: 组件管理 - 添加/删除引擎组件（cc.Sprite、cc.Button等）
-- **component_script**: 脚本组件 - 挂载/移除自定义脚本组件
-- **component_query**: 组件查询 - 获取组件列表、详细信息、可用组件类型
-- **set_component_property**: 属性设置 - 设置单个或多个组件属性值
-
-### 📦 预制体操作 (prefab_*)
-- **prefab_browse**: 预制体浏览 - 列出预制体、查看信息、验证文件
-- **prefab_lifecycle**: 预制体生命周期 - 从节点创建预制体、删除预制体
-- **prefab_instance**: 预制体实例 - 实例化到场景、解除链接、应用更改、还原原始
-- **prefab_edit**: 预制体编辑 - 进入/退出编辑模式、保存预制体、测试更改
-
-### 🚀 项目控制 (project_*)
-- **project_manage**: 项目管理 - 运行项目、构建项目、获取项目信息和设置
-- **project_build_system**: 构建系统 - 控制构建面板、检查构建状态、预览服务器管理
-
-### 🔍 调试工具 (debug_*)
-- **debug_console**: 控制台管理 - 获取/清空控制台日志，支持过滤和限制
-- **debug_logs**: 日志分析 - 读取/搜索/分析项目日志文件，支持模式匹配
-- **debug_system**: 系统调试 - 获取编辑器信息、性能统计、环境信息
-
-### 📁 资源管理 (asset_*)
-- **asset_manage**: 资源管理 - 批量导入/删除资源、保存元数据、生成URL
-- **asset_analyze**: 资源分析 - 获取依赖关系、导出资源清单
-- **asset_system**: 资源系统 - 刷新资源、查询资源数据库状态
-- **asset_query**: 资源查询 - 按类型/文件夹查询资源、获取详细信息
-- **asset_operations**: 资源操作 - 创建/复制/移动/删除/保存/重新导入资源
-
-### ⚙️ 偏好设置 (preferences_*)
-- **preferences_manage**: 偏好管理 - 获取/设置编辑器偏好设置
-- **preferences_global**: 全局设置 - 管理全局配置和系统设置
-
-### 🌐 服务器与广播 (server_* / broadcast_*)
-- **server_info**: 服务器信息 - 获取服务器状态、项目详情、环境信息
-- **broadcast_message**: 消息广播 - 监听和广播自定义消息
-
-### 🖼️ 参考图片 (referenceImage_*)
-- **reference_image_manage**: 参考图片管理 - 添加/删除/管理场景视图中的参考图片
-- **reference_image_view**: 参考图片视图 - 控制参考图片的显示和编辑
-
-### 🎨 场景视图 (sceneView_*)
-- **scene_view_control**: 场景视图控制 - 控制Gizmo工具、坐标系、视图模式
-- **scene_view_tools**: 场景视图工具 - 管理场景视图的各种工具和选项
-
-### ✅ 验证工具 (validation_*)
-- **validation_scene**: 场景验证 - 验证场景完整性、检查缺失资源
-- **validation_asset**: 资源验证 - 验证资源引用、检查资源完整性
-
-### 🛠️ 工具管理
-- **工具配置系统**: 选择性启用/禁用工具，支持多套配置
-- **配置持久化**: 自动保存和加载工具配置
-- **配置导入导出**: 支持工具配置的导入导出功能
-- **实时状态管理**: 工具状态实时更新和同步
-
-### 🚀 核心优势
-- **操作码统一**: 所有工具采用"类别_操作"命名，参数Schema统一
-- **高复用性**: 50个核心工具覆盖99%编辑器功能
-- **AI友好**: 参数清晰、文档完善、调用简单
-- **性能优化**: 降低50% token消耗，提升AI调用成功率
-- **完全兼容**: 与Cocos Creator官方API 100%对齐
-
-## 安装说明
-
-### 1. 复制插件文件
-
-将整个 `cocos-mcp-server` 文件夹复制到您的 Cocos Creator 项目的 `extensions` 目录中，您也可以直接在扩展管理器中导入项目：
-
-```
-您的项目/
-├── assets/
-├── extensions/
-│   └── cocos-mcp-server/          <- 将插件放在这里
-│       ├── source/
-│       ├── dist/
-│       ├── package.json
-│       └── ...
-├── settings/
-└── ...
-```
-
-### 2. 安装依赖
-
-```bash
-cd extensions/cocos-mcp-server
-npm install
-```
-
-### 3. 构建插件
-
-```bash
-npm run build
-```
-
-### 4. 启用插件
-
-1. 重启 Cocos Creator 或刷新扩展
-2. 插件将出现在扩展菜单中
-3. 点击 `扩展 > Cocos MCP Server` 打开控制面板
-
-## 使用方法
-
-### 启动服务器
-
-1. 从 `扩展 > Cocos MCP Server` 打开 MCP 服务器面板
-2. 配置设置：
-   - **端口**: HTTP 服务器端口（默认：3000）
-   - **自动启动**: 编辑器启动时自动启动服务器
-   - **调试日志**: 启用详细日志以便开发调试
-   - **最大连接数**: 允许的最大并发连接数
-
-3. 点击"启动服务器"开始接受连接
-
-### 连接 AI 助手
-
-服务器在 `http://localhost:3000/mcp`（或您配置的端口）上提供 HTTP 端点。
-
-AI 助手可以使用 MCP 协议连接并访问所有可用工具。
-
-
-## 开发
-
-### 项目结构
 ```
 cocos-mcp-server/
-├── source/                    # TypeScript 源文件
-│   ├── main.ts               # 插件入口点
-│   ├── mcp-server.ts         # MCP 服务器实现
-│   ├── settings.ts           # 设置管理
-│   ├── types/                # TypeScript 类型定义
-│   ├── tools/                # 工具实现
+├── source/                    # TypeScript 소스
+│   ├── main.ts               # 플러그인 엔트리
+│   ├── mcp-server.ts         # MCP 서버 구현
+│   ├── settings.ts           # 설정 관리
+│   ├── types/                # TypeScript 타입 정의
+│   ├── tools/                # 도구 구현
 │   │   ├── scene-tools.ts
 │   │   ├── node-tools.ts
 │   │   ├── component-tools.ts
@@ -341,87 +339,67 @@ cocos-mcp-server/
 │   │   ├── preferences-tools.ts
 │   │   ├── server-tools.ts
 │   │   ├── broadcast-tools.ts
-│   │   ├── scene-advanced-tools.ts (已整合到 node-tools.ts 和 scene-tools.ts)
 │   │   ├── scene-view-tools.ts
 │   │   ├── reference-image-tools.ts
 │   │   └── asset-advanced-tools.ts
-│   ├── panels/               # UI 面板实现
-│   └── test/                 # 测试文件
-├── dist/                     # 编译后的 JavaScript 输出
-├── static/                   # 静态资源（图标等）
-├── i18n/                     # 国际化文件
-├── package.json              # 插件配置
-└── tsconfig.json             # TypeScript 配置
+│   ├── panels/               # UI 패널 구현
+│   └── test/                 # 테스트 파일
+├── skills/                    # Claude CLI 스킬
+│   └── cocos-mcp-setup/      # MCP 설치 스킬
+├── dist/                     # 컴파일된 JavaScript 출력
+├── static/                   # 정적 리소스 (아이콘 등)
+├── i18n/                     # 국제화 파일
+├── package.json              # 플러그인 설정
+└── tsconfig.json             # TypeScript 설정
 ```
 
-### 从源码构建
+### 소스에서 빌드
 
 ```bash
-# 安装依赖
+# 의존성 설치
 npm install
 
-# 开发构建（监视模式）
+# 개발 빌드 (감시 모드)
 npm run watch
 
-# 生产构建
+# 프로덕션 빌드
 npm run build
 ```
 
-### 添加新工具
+### 새 도구 추가
 
-1. 在 `source/tools/` 中创建新的工具类
-2. 实现 `ToolExecutor` 接口
-3. 将工具添加到 `mcp-server.ts` 初始化中
-4. 工具会自动通过 MCP 协议暴露
+1. `source/tools/`에 새 도구 클래스 생성
+2. `ToolExecutor` 인터페이스 구현
+3. `mcp-server.ts` 초기화에 도구 추가
+4. 도구가 자동으로 MCP 프로토콜을 통해 노출됨
 
-### TypeScript 支持
+---
 
-插件完全使用 TypeScript 编写，具备：
-- 启用严格类型检查
-- 为所有 API 提供全面的类型定义
-- 开发时的 IntelliSense 支持
-- 自动编译为 JavaScript
+## 문제 해결
 
-## 故障排除
+### 자주 묻는 질문
 
-### 常见问题
+1. **서버가 시작되지 않음**: 포트 가용성 및 방화벽 설정 확인
+2. **도구가 동작하지 않음**: 씬이 로드되어 있고 UUID가 유효한지 확인
+3. **빌드 오류**: `npm run build`로 TypeScript 오류 확인
+4. **연결 문제**: HTTP URL과 서버 상태 확인
 
-1. **服务器无法启动**: 检查端口可用性和防火墙设置
-2. **工具不工作**: 确保场景已加载且 UUID 有效
-3. **构建错误**: 运行 `npm run build` 检查 TypeScript 错误
-4. **连接问题**: 验证 HTTP URL 和服务器状态
+### 디버그 모드
 
-### 调试模式
+플러그인 패널에서 디버그 로그를 활성화하면 상세한 동작 로그를 확인할 수 있습니다.
 
-在插件面板中启用调试日志以获取详细的操作日志。
+---
 
-### 使用调试工具
+## 시스템 요구사항
 
-```json
-{
-  "tool": "debug_get_console_logs",
-  "arguments": {"limit": 50, "filter": "error"}
-}
-```
+- Cocos Creator 3.5.0 이상 (3.8.6+ 권장)
+- Node.js (Cocos Creator에 내장)
+- TypeScript (개발 의존성으로 설치)
 
-```json
-{
-  "tool": "debug_validate_scene",
-  "arguments": {"checkMissingAssets": true}
-}
-```
+## 라이선스
 
-## 系统要求
+본 플러그인은 Cocos Creator 프로젝트용이며, 소스 코드가 함께 패키징됩니다. 학습 및 교류 목적으로 사용할 수 있습니다. 암호화되어 있지 않으며, 직접 2차 개발/최적화가 가능합니다. 단, 본 프로젝트 코드 또는 파생 코드의 상업적 이용 및 재판매는 금지됩니다. 상업적 사용이 필요한 경우 저자에게 연락해주세요.
 
-- Cocos Creator 3.5.0 或更高版本（推荐 3.8.6+）
-- Node.js（Cocos Creator 自带）
-- TypeScript（作为开发依赖安装）
+## 연락처 / 커뮤니티
 
-## 许可证
-
-本插件供 Cocos Creator 项目使用,并且源代码一并打包，可以用于学习和交流。没有加密。可以支持你自己二次开发优化，任何本项目代码或者衍生代码均不能用于任何商用、转售，如果需要商用，请联系本人。
-
-## 联系我加入群
-<img alt="image" src="https://github.com/user-attachments/assets/a276682c-4586-480c-90e5-6db132e89e0f" width="400" height="400" />
-
-
+<img alt="QR코드" src="https://github.com/user-attachments/assets/a276682c-4586-480c-90e5-6db132e89e0f" width="400" height="400" />
